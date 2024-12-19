@@ -22,6 +22,14 @@ dependencies = [
 ]
 
 [[package]]
+name = "Day12"
+version = "0.1.0"
+dependencies = [
+ "find_all",
+ "intbits",
+]
+
+[[package]]
 name = "Day2"
 version = "0.1.0"
 
@@ -70,3 +78,9 @@ name = "find_all"
 version = "2.0.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "8a3b40b97938cd51e8e285e12019dcd28b7e71d7398b6074d92308cebc03888f"
+
+[[package]]
+name = "intbits"
+version = "0.2.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "5170c2c8ecda29c1bccb9d95ccbe107bc75fa084dc0c9c6087e719f9d46330e5"

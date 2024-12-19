@@ -1,0 +1,8 @@
+[package]
+name = "Day12"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+find_all = "2.0.0"
+intbits = "0.2.0"
