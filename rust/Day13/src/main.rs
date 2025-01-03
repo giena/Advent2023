@@ -30,7 +30,6 @@ impl<'a> Game<'a> {
 
     pub fn check_horizontal(&self) -> usize {
         let width = self.width.unwrap();
-        let mut ret: usize = 0;
         for c in 0..(width - 1) {
             let mut ok = true;
             for dc in 0..width {
@@ -61,20 +60,19 @@ impl<'a> Game<'a> {
                                 }
                             }
                         } else {
-                            println!("Test {} {} ({},{}) OKKKK", left, right, c, dc);
+                            println!("Test H {} {} ({},{}) OKKKK", left, right, c, dc);
                         }
                     }
                 }
             }
             if ok {
-                ret = ret + c + 1;
+                return c + 1;
             }
         }
-        ret
+        0
     }
 
     pub fn check_vertical(&self) -> usize {
-        let mut ret: usize = 0;
         for r in 0..(self.lines.len() - 1) {
             let mut ok = true;
             for dr in 0..self.lines.len() {
@@ -100,15 +98,17 @@ impl<'a> Game<'a> {
                                     println!("Test V {} {} ({},{}) OKKKK (part2)", up, down, r, dr);
                                 }
                             }
+                        } else {
+                            println!("Test V {} {} ({},{}) OKKKK", up, down, r, dr);
                         }
                     }
                 }
             }
             if ok {
-                ret = ret + 100 * (r + 1);
+                return 100 * (r + 1);
             }
         }
-        ret
+        0
     }
 }
 
@@ -119,16 +119,18 @@ fn main() {
     let mut lines: Vec<&str> = vec![];
     println!("***********************************************************");
     println!("***********************************************************");
-    let part2 = false;
+    let part2 = true;
     for line in binding.lines() {
         if line.trim().is_empty() {
             let game = Game::new(lines.clone(), part2);
-            let r: usize = game.check_horizontal();
-            println!("Horizontal = {:?}", r);
-            total = total + r as u64;
             let r = game.check_vertical();
             println!("Vertical = {:?}", r);
             total = total + r as u64;
+            if r == 0 {
+                let r: usize = game.check_horizontal();
+                println!("Horizontal = {:?}", r);
+                total = total + r as u64;
+            }
             println!("***********************************************************");
             println!("***********************************************************");
             lines.clear();
