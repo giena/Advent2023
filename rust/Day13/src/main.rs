@@ -114,7 +114,7 @@ impl<'a> Game<'a> {
 
 fn main() {
     let mut total: u64 = 0_u64;
-    let binding = read_to_string("/home/giena/dev/work/advent/2023/rust/Day13/input").unwrap();
+    let binding = read_to_string("/home/giena/dev/work/advent/2023/rust/Day13/input3").unwrap();
     //let mut games: Vec<Game> = vec![];
     let mut lines: Vec<&str> = vec![];
     println!("***********************************************************");

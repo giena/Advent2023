@@ -159,7 +159,7 @@ fn total(game: &Game) -> usize {
 }
 
 fn main() {
-    let binding = read_to_string("/home/giena/dev/work/advent/2023/rust/Day14/input").unwrap();
+    let binding = read_to_string("/home/giena/dev/work/advent/2023/rust/Day14/input2").unwrap();
     let mut lines: Vec<&str> = vec![];
     let mut width: usize = 0;
     for line in binding.lines() {
@@ -193,6 +193,9 @@ fn main() {
         println!("Result {} = {}", i, results[i]);
     }*/
 
+    //i cycles are done.
+    //It keeps to do (1000000000 - i) to be done.
+    //But this reapeats each cycle_length, so compute the remaining with modulo.
     let remaining = (1000000000 - i) % cycle_length;
     println!("Rem: {}", remaining);
     for _ in 0..remaining {
